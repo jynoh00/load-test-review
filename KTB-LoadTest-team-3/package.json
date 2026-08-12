@@ -1,0 +1,16 @@
+{
+  "name": "ktb-chat",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.28.2",
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev:frontend\" \"pnpm run dev:backend\" 2>&1 | tee /tmp/ktb-dev.log",
+    "dev:frontend": "cd apps/frontend && ([ -f .env.local ] || cp .env.example .env.local) && PORT=$(grep '^PORT=' .env.local | cut -d= -f2) pnpm run dev",
+    "dev:backend": "cd apps/backend && make dev",
+    "test:e2e": "pnpm --dir e2e test",
+    "test:artillery": "cd e2e/artillery && make artillery"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}

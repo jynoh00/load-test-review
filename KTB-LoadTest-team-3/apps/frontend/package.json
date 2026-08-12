@@ -1,0 +1,44 @@
+{
+  "name": "chat-app-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Chat App using Next.js",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run --passWithNoTests",
+    "format": "prettier . --write --ignore-path .prettierignore",
+    "build:production": "test -f .env.production || { echo '.env.production 이 없습니다. cp .env.production.example .env.production 후 배포 주소로 값을 채우세요.' >&2; exit 1; } && env $(grep -vE '^[[:space:]]*(#|$)' .env.production | xargs) next build && pnpm run deploy:static",
+    "deploy:static": "cp -r .next/static .next/standalone/apps/frontend/.next/ && cp -r public .next/standalone/apps/frontend/"
+  },
+  "dependencies": {
+    "@emoji-mart/data": "1.2.1",
+    "@emoji-mart/react": "1.1.1",
+    "@vapor-ui/core": "1.3.0",
+    "@vapor-ui/icons": "1.2.0",
+    "axios": "1.18.0",
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-canvas-confetti": "2.0.7",
+    "react-dom": "19.2.7",
+    "react-toastify": "10.0.6",
+    "socket.io-client": "4.8.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "3.3.5",
+    "@tailwindcss/postcss": "4.3.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@vitejs/plugin-react": "6.0.2",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.9",
+    "jsdom": "29.1.1",
+    "msw": "2.14.6",
+    "prettier": "3.8.4",
+    "tailwindcss": "4.3.1",
+    "vite": "8.0.16",
+    "vitest": "4.1.9"
+  }
+}

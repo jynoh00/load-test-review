@@ -1,0 +1,12 @@
+node_modules/
+*.log
+.DS_Store
+package-lock.json
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Load-test run artifacts (not versioned) — keep the baseline doc
+results/*
+!results/README-baseline.md

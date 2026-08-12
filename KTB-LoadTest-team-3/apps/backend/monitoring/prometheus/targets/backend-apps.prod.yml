@@ -1,0 +1,17 @@
+# Production Environment - Backend App Metrics (actuator/prometheus)
+# 앱 노드의 Spring Boot 지표 타겟 목록
+# 노드가 늘거나 IP가 바뀌면 이 파일을 직접 수정하세요.
+# file_sd이므로 파일만 갱신되면 Prometheus 재시작 불필요.
+
+# App Server (Spring Boot actuator)
+- targets:
+    - 'IP:5001'  # your-app-server1
+    - 'IP:5001'  # your-app-server2
+    - 'IP:5001'  # your-app-server3
+    - 'IP:5001'  # your-app-server4
+  labels:
+    application: 'ktb-chat-backend'
+    environment: 'production'
+    region: 'ap-northeast-2'
+    cluster: 'app'
+    service: 'backend'

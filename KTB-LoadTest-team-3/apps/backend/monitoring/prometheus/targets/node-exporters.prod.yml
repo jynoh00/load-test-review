@@ -1,0 +1,42 @@
+# Production Environment - Node Exporters
+# 프로덕션 환경의 Node Exporter 타겟 목록
+# 서버 추가 시 이 파일만 수정하면 자동으로 반영됩니다 (Prometheus 재시작 불필요)
+
+# App Server (backend + frontend on one host)
+- targets:
+    - 'IP:9100'  # your-app-server1
+    - 'IP:9100'  # your-app-server2
+    - 'IP:9100'  # your-app-server3
+    - 'IP:9100'  # your-app-server4
+  labels:
+    environment: 'production'
+    region: 'ap-northeast-2'
+    cluster: 'app'
+    service: 'api+next'
+
+# Database Cluster
+- targets:
+    - 'IP:9100'  # your-mongo-server
+  labels:
+    environment: 'production'
+    region: 'ap-northeast-2'
+    cluster: 'database'
+    service: 'mongodb'
+
+# Redis Cluster
+- targets:
+    - 'IP:9100'  # your-redis-server
+  labels:
+    environment: 'production'
+    region: 'ap-northeast-2'
+    cluster: 'cache'
+    service: 'redis'
+
+# Monitoring Server
+- targets:
+    - 'IP:9100'  # your-o11y-server
+  labels:
+    environment: 'production'
+    region: 'ap-northeast-2'
+    cluster: 'monitoring'
+    service: 'observability'

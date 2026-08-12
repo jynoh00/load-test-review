@@ -1,0 +1,14 @@
+packages:
+  - apps/frontend
+  - e2e
+peerDependencyRules:
+  allowedVersions:
+    "@emoji-mart/react>react": "19"
+allowBuilds:
+  msw: true
+  playwright: true
+  sharp: true
+  unrs-resolver: true
+  "@playwright/browser-chromium": true
+  protobufjs: true
+  unix-dgram: true
